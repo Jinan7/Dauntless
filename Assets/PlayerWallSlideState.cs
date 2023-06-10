@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAirState : PlayerState
+public class PlayerWallSlideState : PlayerState
 {
-    public PlayerAirState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    public PlayerWallSlideState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
 
@@ -22,14 +22,9 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
-        if (player.IsWallDetected())
-        {
-            stateMachine.ChangeState(player.wallSlideState);
-        }
-        if(player.IsGroundDetected())
+        if (!player.IsWallDetected())
         {
             stateMachine.ChangeState(player.idleState);
         }
     }
 }
-
