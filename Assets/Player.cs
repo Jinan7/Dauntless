@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private float wallCheckDistance;
+    [SerializeField] private LayerMask whatIsGround;
 
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -54,6 +55,8 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
     }
+
+    public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance,whatIsGround);
 
     private void OnDrawGizmos()
     {
