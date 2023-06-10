@@ -23,6 +23,7 @@ public class PlayerState
 
     public virtual void Update() {
         xInput = Input.GetAxisRaw("Horizontal");
+        player.SetVelocity(xInput, player.rb.velocity.y);
     }
 
     public virtual void Exit() {
