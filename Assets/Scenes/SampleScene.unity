@@ -156,10 +156,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 12
   jumpForce: 12
+  dashSpeed: 12
+  dashDuration: 0.2
   groundCheck: {fileID: 2027593341}
   wallCheck: {fileID: 1589024742}
   groundCheckDistance: 0.14
   wallCheckDistance: 0.28
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &399360459
 Transform:
   m_ObjectHideFlags: 0
@@ -449,8 +454,8 @@ GameObject:
   - component: {fileID: 1439583868}
   - component: {fileID: 1439583867}
   - component: {fileID: 1439583869}
-  m_Layer: 0
-  m_Name: Square
+  m_Layer: 3
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
