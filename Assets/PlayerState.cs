@@ -8,6 +8,7 @@ public class PlayerState
     protected Player player;
     protected PlayerStateMachine stateMachine;
     private string animBoolName;
+    protected float xInput;
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
     {
@@ -21,7 +22,7 @@ public class PlayerState
     }
 
     public virtual void Update() {
-        Debug.Log(animBoolName);
+        xInput = Input.GetAxisRaw("Horizontal");
     }
 
     public virtual void Exit() {
