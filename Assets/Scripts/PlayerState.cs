@@ -11,6 +11,7 @@ public class PlayerState
     protected float xInput;
     protected Rigidbody2D rb;
     protected float stateTimer;
+    public bool trigger;
     [SerializeField] protected float dashCooldown = 5f;
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
@@ -23,6 +24,7 @@ public class PlayerState
     public virtual void Enter() {
         player.anim.SetBool(animBoolName, true);
         rb = player.rb;
+        trigger = false;
     }
 
     public virtual void Update() {
@@ -46,5 +48,9 @@ public class PlayerState
             dashCooldown = 5f;
             stateMachine.ChangeState(player.dashState);
         }
+    }
+
+    public void AnimationFinishTrigger() {
+        trigger = true;
     }
 }

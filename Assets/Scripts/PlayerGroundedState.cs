@@ -32,6 +32,10 @@ public class PlayerGroundedState : PlayerState
         {
             stateMachine.ChangeState(player.jumpState);
         }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            stateMachine.ChangeState(player.atackState);
+        }
 
     }
 }
